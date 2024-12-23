@@ -25,5 +25,8 @@ include(":Anime-Core")
 include(":Source-JkAnime")
 include(":Source-LatAnime")
 
+include(":Anime-Es-Bundle")
+
 project(":Source-JkAnime").projectDir = File(rootDir, "src/es/Source-JkAnime")
 project(":Source-LatAnime").projectDir = File(rootDir, "src/es/Source-LatAnime")
+
