@@ -2,9 +2,8 @@ package com.ead.lib.anime.core.core.connection
 
 import com.ead.lib.anime.core.core.client.BackAnimeClient
 import com.ead.lib.anime.core.core.system.extensions.await
-import okhttp3.Headers
 
-class ConnectionManager(
+class ConnectionImpl(
     private val isDebug: Boolean = false,
     private val baseUrl: String = BASE_URL
 ) : BackAnimeClient() {
