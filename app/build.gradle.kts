@@ -1,3 +1,9 @@
+val javaStringVersion: String by project
+val javaVersion = JavaVersion.toVersion(javaStringVersion)
+val compileLibSdkVersion : String by project
+val libSdkMinVersion : String by project
+val backAnimeVersion : String by project
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -6,14 +12,14 @@ plugins {
 
 android {
     namespace = "com.ead.project.backanime"
-    compileSdk = 35
+    compileSdk = compileLibSdkVersion.toInt()
 
     defaultConfig {
         applicationId = "com.ead.project.backanime"
-        minSdk = 21
-        targetSdk = 35
+        minSdk = libSdkMinVersion.toInt()
+        targetSdk = compileLibSdkVersion.toInt()
         versionCode = 1
-        versionName = "1.0"
+        versionName = backAnimeVersion
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -28,11 +34,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = javaStringVersion
     }
     buildFeatures {
         compose = true
@@ -49,6 +55,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -57,6 +65,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation("io.coil-kt.coil3:coil-compose:3.0.4")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.4")
+
     implementation(project(":Anime-Core"))
     implementation(project(":Source-JkAnime"))
+    implementation(project(":Source-LatAnime"))
 }
