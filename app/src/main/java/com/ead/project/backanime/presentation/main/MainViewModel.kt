@@ -12,6 +12,7 @@ import com.ead.lib.anime.core.models.home.HomeEpisode
 import com.ead.lib.anime.core.models.info.AnimeInfo
 import com.ead.lib.anime.core.models.info.Episode
 import com.ead.lib.source.jkanime.JkAnimeService
+import com.ead.lib.source.latanime.LatAnimeService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -37,7 +38,7 @@ class MainViewModel : ViewModel() {
         BackAnimeService.onSupplier(
             Supplier(
                 baseService = JkAnimeService(),
-                dubService = JkAnimeService()
+                dubService = LatAnimeService()
             )
         )
         getHome()
