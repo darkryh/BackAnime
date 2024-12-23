@@ -69,6 +69,5 @@ dependencies {
     implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.4")
 
     implementation(project(":Anime-Core"))
-    implementation(project(":Source-JkAnime"))
-    implementation(project(":Source-LatAnime"))
+    implementation(project(":Anime-Es-Bundle"))
 }

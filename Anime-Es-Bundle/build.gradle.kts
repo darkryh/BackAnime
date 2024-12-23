@@ -30,17 +30,14 @@ publishing {
             }
 
             groupId = "com.ead.lib"
-            artifactId = "back-anime-core"
+            artifactId = "back-anime-es-bundle"
             version = backAnimeVersion
         }
     }
 }
 
+
 dependencies {
-    api(libs.kotlinx.coroutines.core)
-    api(libs.json)
-    api(libs.jsoup)
-    api(platform(libs.okhttp.bom))
-    api(libs.okhttp)
-    api(libs.okhttp.interceptor)
+    api(project(":Source-JkAnime"))
+    api(project(":Source-LatAnime"))
 }
