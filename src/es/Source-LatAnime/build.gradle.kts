@@ -7,6 +7,7 @@ val backAnimeVersion : String by project
 
 plugins {
     id("java-library")
+    id("maven-publish")
     alias(libs.plugins.kotlin.jvm)
 }
 
@@ -18,6 +19,20 @@ java {
 kotlin {
     compilerOptions {
         jvmTarget = javaVirtualMachineTarget
+    }
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            afterEvaluate {
+                from(components["java"])
+            }
+
+            groupId = "com.ead.lib"
+            artifactId = "back-anime-es-latanime"
+            version = backAnimeVersion
+        }
     }
 }
 

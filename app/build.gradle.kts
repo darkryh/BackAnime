@@ -70,4 +70,7 @@ dependencies {
 
     implementation(project(":Anime-Core"))
     implementation(project(":Anime-Es-Bundle"))
+
+    /*implementation("com.github.darkryh.BackAnime:back-anime-core:0.0.2-alpha")
+    implementation("com.github.darkryh.BackAnime:back-anime-es-bundle:0.0.2-alpha")*/
 }

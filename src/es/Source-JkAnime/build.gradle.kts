@@ -7,6 +7,7 @@ val backAnimeVersion : String by project
 
 plugins {
     id("java-library")
+    id("maven-publish")
     alias(libs.plugins.kotlin.jvm)
 }
 
@@ -20,6 +21,21 @@ kotlin {
         jvmTarget = javaVirtualMachineTarget
     }
 }
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            afterEvaluate {
+                from(components["java"])
+            }
+
+            groupId = "com.ead.lib"
+            artifactId = "back-anime-es-jkanime"
+            version = backAnimeVersion
+        }
+    }
+}
+
 
 dependencies {
     api(project(":Anime-Core"))
