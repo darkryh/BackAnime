@@ -1,6 +1,6 @@
 package com.ead.lib.anime.core.core.client
 
-import com.ead.lib.anime.core.core.connection.ConnectionManager.Companion.BASE_URL
+import com.ead.lib.anime.core.core.connection.ConnectionImpl.Companion.BASE_URL
 import com.ead.lib.anime.core.core.cookiejar.BackAnimeJar
 import okhttp3.OkHttpClient
 import okhttp3.Request
