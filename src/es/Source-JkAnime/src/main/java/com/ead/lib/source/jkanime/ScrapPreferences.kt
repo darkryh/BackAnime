@@ -3,10 +3,10 @@ package com.ead.lib.source.jkanime
 import com.ead.lib.anime.core.models.structure.directory.AnimeStructure
 import com.ead.lib.anime.core.models.structure.home.HomeEpisodeStructure
 import com.ead.lib.anime.core.models.structure.info.AnimeInfoStructure
-import com.ead.lib.anime.core.models.structure.info.EpisodeStructure
 
-internal val regexHomeNumber = """jkanime\.net/.+?/(\d+)/?$""".toRegex()
-internal val regexAjaxCode = """/ajax/votado/(\d+)/""".toRegex()
+val regexEpisode = """https://jkanime\.net/([^/]+)/([^/]+)?/?""".toRegex()
+val regexSeoOnly = """https://jkanime\.net/([^/]+)/?""".toRegex()
+val regexWatch = """"remote":"(.*?)"""".toRegex()
 
 internal val homeEpisodeStructure = HomeEpisodeStructure(
     classList = "div.anime_programing a",
@@ -21,7 +21,7 @@ internal val homeEpisodeStructure = HomeEpisodeStructure(
 internal val animeInfoStructure = AnimeInfoStructure(
     title = "meta[property='og:title']",
     alternativeTitle = null,
-    status = "li:contains(Estado)",
+    status = "li:contains(Estado) span:last-child",
     coverImage = "meta[property='og:image']",
     profileImage = null,
     episodes = "li:contains(Episodios)",
@@ -37,12 +37,4 @@ internal val animeStructure = AnimeStructure(
     year = null,
     image = "div.anime__item__pic",
     url = "div.anime__item a[href]"
-)
-
-internal val episodeStructure = EpisodeStructure(
-    classList = "div.anime_programing a",
-    title = "h5",
-    number = "h6",
-    image = "",
-    url = ""
 )
